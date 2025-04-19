@@ -5,15 +5,16 @@ const wisataBudayaRoutes = require("./routes/wisataBudayaRoutes");
 const mysql = require("mysql2/promise");
 
 const init = async () => {
-    const server = Hapi.server({
-        port: process.env.PORT || 3000,
-        host: "0.0.0.0",
-        routes: {
-          cors: {
-            origin: ["*"], // izinkan semua origin (termasuk localhost:5173)
-          },
-        },
-      });
+  const server = Hapi.server({
+    port: process.env.PORT || 3000,
+    host: "0.0.0.0", // <-- ini penting untuk Railway
+    routes: {
+      cors: {
+        origin: ["*"],
+      },
+    },
+  });
+  
       
 
   // Setup MySQL pool
